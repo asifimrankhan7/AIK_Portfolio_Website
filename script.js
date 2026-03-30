@@ -1,60 +1,89 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // DOM Elements
-    const navbar = document.querySelector('.glass-nav');
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  const body = document.body;
+  const loaderBar = document.querySelector('.loader-bar');
+  const loaderPercentage = document.querySelector('.loader-percentage');
 
-    const navItems = document.querySelectorAll('.nav-links li a');
+  let count = 0;
+  const loadingSpeed = 20; // Lower is faster
 
-    // Sticky Navbar Effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.padding = '0 30px';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.7)';
-            navbar.style.padding = '0 50px';
-        }
-    });
-
-    // Mobile Menu Toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close Mobile Menu on Link Click
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-    });
-
-
-
-    // Scroll Reveal Animation (Intersection Observer)
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Note: You can add CSS classes for .in-view to animate elements
-    // For now, let's just observe sections to lazy load or trigger something if needed
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
+  const loadingInterval = setInterval(() => {
+    count++;
     
-    // Smooth scrolling for anchor links is handled by CSS (html { scroll-behavior: smooth; })
+    if (loaderBar) loaderBar.style.width = count + '%';
+    if (loaderPercentage) loaderPercentage.innerText = count + '%';
+
+    if (count >= 100) {
+      clearInterval(loadingInterval);
+      
+      // Add a small pause at 100% for perceived completeness
+      setTimeout(() => {
+        preloader.classList.add('loaded');
+        body.classList.remove('loading');
+      }, 300);
+    }
+  }, loadingSpeed);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // --- SCROLL REVEAL (Intersection Observer) ---
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { 
+    threshold: 0.1, 
+    rootMargin: '0px 0px -20px 0px' 
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // --- NAVIGATION PILL SCROLL EFFECT ---
+  const navPill = document.querySelector('.nav-pill');
+  if (navPill) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navPill.style.transform = 'scale(0.98)';
+        navPill.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
+        navPill.style.background = 'rgba(255, 255, 255, 0.95)';
+      } else {
+        navPill.style.transform = 'scale(1)';
+        navPill.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+        navPill.style.background = 'rgba(255, 255, 255, 0.85)';
+      }
+    });
+  }
+
+  // --- SMOOTH ANCHOR SCROLLING ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        const headerOffset = 100;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // --- SHOWREEL PARALLAX ---
+  const showreel = document.querySelector('.showreel-bg');
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.pageYOffset;
+    if (showreel && window.innerWidth > 768) {
+      showreel.style.transform = `translateY(${scrollPos * 0.05}px) scale(1.02)`;
+    }
+  });
 });
