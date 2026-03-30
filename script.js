@@ -86,4 +86,62 @@ document.addEventListener('DOMContentLoaded', () => {
       showreel.style.transform = `translateY(${scrollPos * 0.05}px) scale(1.02)`;
     }
   });
+
+  // --- MOBILE HEADER SCROLL DYNAMICS ---
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector('header');
+  let scrollTimer = null;
+
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth > 768) return; // Only mobile
+
+    const currentScrollY = window.scrollY;
+    
+    // 1. Manage Transparency while active scrolling
+    header.classList.add('header-scrolled');
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      header.classList.remove('header-scrolled');
+    }, 100);
+
+    // 2. Headroom Hide/Show logic
+    if (currentScrollY > 100) { // Start hiding after a threshold
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        header.classList.add('header-hidden');
+      } else {
+        // Scrolling up
+        header.classList.remove('header-hidden');
+      }
+    } else {
+      // Near top - always show
+      header.classList.remove('header-hidden');
+    }
+    
+    lastScrollY = currentScrollY;
+  });
+
+  // --- MOBILE MENU TOGGLE ---
+  const navToggle = document.querySelector('.nav-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu-overlay');
+  const body = document.body;
+  const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      body.classList.toggle('menu-open'); // Added for CSS scoping
+      body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+        body.style.overflow = '';
+      });
+    });
+  }
 });
