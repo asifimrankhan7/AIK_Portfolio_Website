@@ -42,17 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => revealObserver.observe(el));
 
   // --- NAVIGATION PILL SCROLL EFFECT ---
-  const navPill = document.querySelector('.nav-pill');
-  if (navPill) {
+  const header = document.querySelector('header');
+  if (header) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        navPill.style.transform = 'scale(0.98)';
-        navPill.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
-        navPill.style.background = 'rgba(255, 255, 255, 0.95)';
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
       } else {
-        navPill.style.transform = 'scale(1)';
-        navPill.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
-        navPill.style.background = 'rgba(255, 255, 255, 0.85)';
+        header.classList.remove('header-scrolled');
       }
     });
   }
@@ -66,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        const headerOffset = 100;
+        const headerOffset = 80;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -89,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- MOBILE HEADER SCROLL DYNAMICS ---
   let lastScrollY = window.scrollY;
-  const header = document.querySelector('header');
   let scrollTimer = null;
 
   window.addEventListener('scroll', () => {
@@ -121,6 +116,31 @@ document.addEventListener('DOMContentLoaded', () => {
     lastScrollY = currentScrollY;
   });
 
+  // --- ACTIVE NAV HIGHLIGHTING ---
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  const navObserverOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, navObserverOptions);
+
+  sections.forEach(section => navObserver.observe(section));
+
   // --- MOBILE MENU TOGGLE ---
   const navToggle = document.querySelector('.nav-toggle');
   const mobileMenu = document.querySelector('.mobile-menu-overlay');
@@ -131,16 +151,36 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('active');
       mobileMenu.classList.toggle('active');
-      body.classList.toggle('menu-open'); // Added for CSS scoping
+      body.classList.toggle('menu-open');
       body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        body.classList.remove('menu-open');
-        body.style.overflow = '';
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navToggle.classList.remove("active");
+        mobileMenu.classList.remove("active");
+        body.classList.remove("menu-open");
+        body.style.overflow = "";
+      });
+    });
+  }
+
+  // --- BACK TO TOP BUTTON LOGIC ---
+  const backToTopBtn = document.getElementById("back-to-top");
+
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.add("visible");
+      } else {
+        backToTopBtn.classList.remove("visible");
+      }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
       });
     });
   }
