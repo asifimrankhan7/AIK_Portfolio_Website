@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   const loaderPercentage = document.querySelector('.loader-percentage');
 
   let count = 0;
-  const loadingSpeed = 20; // Lower is faster
+  const loadingSpeed = 10; // Lower is faster
 
   const loadingInterval = setInterval(() => {
     count++;

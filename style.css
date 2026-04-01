@@ -68,7 +68,8 @@ header.header-hidden {
 }
 
 header.header-scrolled {
-  opacity: 0.4; /* Transparent while scrolling */
+  /* Remove opacity: 0.4; it makes the links unreadable */
+  opacity: 1; 
 }
 
 /* Ensure header is visible when menu is open */
@@ -81,36 +82,28 @@ body.menu-open header {
   width: 100%;
   max-width: 1400px;
   pointer-events: auto;
-  background: none;
-  backdrop-filter: blur(0px);
-  border: 1px solid transparent;
   border-radius: 100px;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: clamp(16px, 3vw, 40px);
-  background: rgba(10, 13, 18, 0.2);
-  backdrop-filter: blur(60px);
+  background: rgba(10, 13, 18, 0.4);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 100px;
   height: 80px;
   padding: 8px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   transition: var(--smooth);
 }
 
 header.header-scrolled .nav-pill {
   max-width: fit-content;
-  background: rgba(10, 13, 18, 0.4); /* Slightly deeper on scroll */
-  backdrop-filter: blur(60px);
+  background: rgba(10, 13, 18, 0.85); /* More solid on scroll */
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 8px 8px 8px 32px;
-  height: 72px; /* Slight collapse on scroll for efficiency */
+  height: 72px; 
   justify-content: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
@@ -263,7 +256,14 @@ header.header-scrolled .nav-logo-img {
 }
 
 /* ─── CONTRAST FIXES FOR LIGHT SECTIONS ─────────── */
-section:not(.hero), 
+/* Ensure section text is white by default on dark body, but black in light sections */
+section {
+  color: #fff;
+  scroll-margin-top: 100px; /* Space for the sticky nav */
+}
+
+/* Light background sections */
+section:nth-child(even),
 #about-page,
 .experience,
 .skills-container,
@@ -285,7 +285,7 @@ section:not(.hero),
   justify-content: center;
   text-align: center;
   padding: 180px var(--container-padding) 100px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)), 
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), 
               url("hero-bg.png");
   background-size: cover;
   background-position: center;
