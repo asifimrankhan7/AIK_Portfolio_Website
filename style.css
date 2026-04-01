@@ -98,13 +98,12 @@ body.menu-open header {
 }
 
 header.header-scrolled .nav-pill {
-  max-width: fit-content;
-  background: rgba(10, 13, 18, 0.85); /* More solid on scroll */
+  max-width: 600px;
+  background: rgba(10, 13, 18, 0.85); 
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 8px 8px 8px 32px;
   height: 72px; 
-  justify-content: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -121,7 +120,6 @@ header.header-scrolled .nav-logo-img {
   height: clamp(40px, 6vw, 54px);
   width: auto;
   transition: var(--smooth);
-  mix-blend-mode: screen; /* Removes black portions of the logo */
 }
 
 .nav-logo-link:hover .nav-logo-img {
