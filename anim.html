@@ -1,10 +1,19 @@
 <html>
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+
+            --font-mono: "JetBrains Mono", monospace;
 
             --smooth-anim: all cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
         }
@@ -12,51 +21,57 @@
         html {
             height: 100%;
             width: 100%;
-            background-color: black;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             width: 100%;
             margin: 0;
             padding: 0;
-            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #568af2 32px), repeating-linear-gradient(#00025d, #f7f7f7);
-            background-color: #568af2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .backbg {
+            position: fixed;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-width: 100vw;
+            max-height: 100vh;
+            top: 0;
+            left: 0;
         }
 
         .header {
-            max-width: 700px;
             width: 100%;
-            margin: 10px auto;
             position: sticky;
-            top: 20px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
+            top: 0;
             transition: var(--smooth-anim);
-            background-color: #00025d30;
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            border-radius: 50px;
+            border-bottom: 1px solid #ffffff10;
+            backdrop-filter: blur(0px);
+            padding: 15px 20px;
         }
 
         .header.active {
-            padding: 15px 20px;
-            top: 10px;
+            backdrop-filter: blur(10px);
+            background-color: #00000010;
         }
 
-        .header .logo {
-            transition: var(--smooth-anim);
-            width: 50px;
-            height: auto;
-
+        .header .container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
-        .header.active .logo {
-            scale: 1.2;
-        }
 
-        .header .logo-container {
-            max-width: 100px;
+        .header .anim-container {
+            max-width: 150px;
             opacity: 1;
             transition: var(--smooth-anim);
             overflow: hidden;
@@ -65,36 +80,132 @@
 
         }
 
-        .header.active .logo-container {
+        .header.active .anim-container {
             max-width: 0;
             opacity: 0;
         }
 
-        .logo-container .title {
+        .header .title {
             font-size: 1.3rem;
-            font-weight: 700;
+            font-weight: 200;
             color: #fff;
-            letter-spacing: 1;
+            letter-spacing: 2.5;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            white-space: nowrap;
         }
 
-        .logo-container .subtitle {
-            font-size: 0.8rem;
+        .hero-section {
+            width: 100%;
+            padding: 180px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 5vw, 6rem);
             font-weight: 700;
             color: #fff;
+            max-width: 1000px;
+            margin: 0;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            max-width: 600px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-button {
+            width: fit-content;
+            padding: 15px 40px;
+            border: none;
+            background-color: #ffffff30;
+            backdrop-filter: blur(5px);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid #ffffff30;
+            border-radius: 50px;
+            transition: var(--smooth-anim);
+            transform: scale(1);
+        }
+
+        .hero-button:hover {
+            scale: 1.05;
+            background-color: #ffffff50;
+        }
+
+        .hero-button-outline {
+            width: fit-content;
+            padding: 15px 40px;
+            border: none;
+            background-color: #ffffff00;
+            backdrop-filter: blur(5px);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid #ffffff30;
+            border-radius: 50px;
+            transition: var(--smooth-anim);
+            transform: scale(1);
+        }
+
+        .hero-button-outline:hover {
+            scale: 1.05;
+            background-color: #ffffff50;
         }
     </style>
 
 </head>
 
 <body>
+
+
+    <img src="https://unsplash.com/photos/nY14Fs8pxT8/download?force=true&w=2400" class="backbg" />
+
     <header class="header">
-        <img src="Logo.png" class="logo" />
-        <div class="logo-container">
-            <span class="title">asifimran</span>
-            <span class="subtitle">design</span>
+        <div class="container">
+            <span class="title">ASIF</span>
+            <div class="anim-container">
+                <span class="title">IMRAN KHAN</span>
+            </div>
         </div>
     </header>
 
+
+    <section class="hero-section">
+        <div class="hero-content container">
+            <h1>Make your website a growth engine</h1>
+            <p>I design and develop high-performance websites that turn visitors into customers. Lorem ipsum dolor sit
+                amet
+            </p>
+
+            <div class="hero-actions">
+                <button class="hero-button">Get Started</button>
+                <button class="hero-button-outline">View Work</button>
+            </div>
+
+        </div>
+    </section>
     <div style="height: 200vh;">
 
     </div>
