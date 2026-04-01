@@ -1,226 +1,286 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Reveal Animation | Asif Imran Khan</title>
+    <meta name="description" content="A demonstration of a premium scroll-triggered header animation and hero section.">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
+
     <style>
+        /* -------------------------------------------------------------------------- */
+        /*  1. CSS Variables & Reset                                                   */
+        /* -------------------------------------------------------------------------- */
         :root {
             box-sizing: border-box;
             font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
 
+            /* Design Tokens */
             --font-mono: "JetBrains Mono", monospace;
-
             --smooth-anim: all cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+
+            /* Colors */
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --header-active-bg: rgba(0, 0, 0, 0.2);
         }
 
-        html {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
         }
 
+        html,
         body {
             width: 100%;
             margin: 0;
             padding: 0;
+            /* Fallback */
         }
 
+        /* -------------------------------------------------------------------------- */
+        /*  2. Layout Components                                                      */
+        /* -------------------------------------------------------------------------- */
+
+        /* Main centering container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .backbg {
+        /* Background image that stays fixed behind content */
+        .background-overlay {
             position: fixed;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            max-width: 100vw;
-            max-height: 100vh;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            pointer-events: none;
         }
 
-        .header {
+        /* -------------------------------------------------------------------------- */
+        /*  3. Header Section                                                         */
+        /* -------------------------------------------------------------------------- */
+
+        .site-header {
             width: 100%;
             position: sticky;
             top: 0;
+            z-index: 100;
             transition: var(--smooth-anim);
-            border-bottom: 1px solid #ffffff10;
+            border-bottom: 1px solid var(--glass-border);
             backdrop-filter: blur(0px);
-            padding: 15px 20px;
+            padding: 15px 0;
         }
 
-        .header.active {
-            backdrop-filter: blur(10px);
-            background-color: #00000010;
+        /* State when page is scrolled */
+        .site-header.header--active {
+            backdrop-filter: blur(15px);
+            background-color: var(--header-active-bg);
+            padding: 12px 0;
         }
 
-        .header .container {
+        .site-header .container {
             display: flex;
             gap: 10px;
             align-items: center;
         }
 
-
-        .header .anim-container {
-            max-width: 150px;
-            opacity: 1;
-            transition: var(--smooth-anim);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-
-        }
-
-        .header.active .anim-container {
-            max-width: 0;
-            opacity: 0;
-        }
-
-        .header .title {
+        /* Brand Typography */
+        .brand-name {
             font-size: 1.3rem;
             font-weight: 200;
-            color: #fff;
-            letter-spacing: 2.5;
+            color: var(--text-primary);
+            letter-spacing: 0.15em;
             font-family: var(--font-mono);
             text-transform: uppercase;
             white-space: nowrap;
         }
 
+        /* Container for the sliding/reveal animation part of the name */
+        .brand-reveal-wrapper {
+            max-width: 200px;
+            /* Adjust based on "IMRAN KHAN" width */
+            opacity: 1;
+            transition: var(--smooth-anim);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Hide the secondary part of the name on scroll */
+        .site-header.header--active .brand-reveal-wrapper {
+            max-width: 0;
+            opacity: 0;
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /*  4. Hero Section                                                           */
+        /* -------------------------------------------------------------------------- */
+
         .hero-section {
             width: 100%;
-            padding: 180px 0;
+            padding: 160px 0;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            justify-content: center;
         }
 
         .hero-content {
-            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 60px;
+            gap: 40px;
         }
 
-        .hero-content h1 {
-            font-size: clamp(3rem, 5vw, 6rem);
-            font-weight: 700;
-            color: #fff;
-            max-width: 1000px;
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            max-width: 900px;
             margin: 0;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #fff;
-            max-width: 600px;
-            line-height: 1.5;
+        .hero-description {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            max-width: 550px;
+            line-height: 1.6;
             margin: 0;
+            opacity: 0.9;
         }
 
-        .hero-actions {
+        /* -------------------------------------------------------------------------- */
+        /*  5. Buttons                                                                */
+        /* -------------------------------------------------------------------------- */
+
+        .btn-group {
             display: flex;
-            gap: 10px;
+            gap: 16px;
+            margin-top: 10px;
         }
 
-        .hero-button {
-            width: fit-content;
-            padding: 15px 40px;
-            border: none;
-            background-color: #ffffff30;
-            backdrop-filter: blur(5px);
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 200;
-            cursor: pointer;
-            border: 1px solid #ffffff30;
-            border-radius: 7px;
-            transition: var(--smooth-anim);
-            transform: scale(1);
+        .btn {
             font-family: var(--font-mono);
-        }
-
-        .hero-button:hover {
-            scale: 1.05;
-            background-color: #ffffff50;
-        }
-
-        .hero-button-outline {
-            width: fit-content;
-            padding: 15px 40px;
-            border: none;
-            background-color: #ffffff00;
-            backdrop-filter: blur(5px);
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            padding: 16px 32px;
+            border-radius: 8px;
             cursor: pointer;
-            border: 1px solid #ffffff30;
-            border-radius: 7px;
             transition: var(--smooth-anim);
-            transform: scale(1);
-            font-family: var(--font-mono);
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
-        .hero-button-outline:hover {
-            scale: 1.05;
-            background-color: #ffffff50;
+        .btn-primary {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Helper for long content scroll visibility */
+        .spacer {
+            height: 150vh;
         }
     </style>
-
 </head>
 
 <body>
 
+    <!-- Background Image -->
+    <img src="https://unsplash.com/photos/nY14Fs8pxT8/download?force=true&w=2400"
+        alt="Decorative architectural background" class="background-overlay" />
 
-    <img src="https://unsplash.com/photos/nY14Fs8pxT8/download?force=true&w=2400" class="backbg" />
-
-    <header class="header">
+    <!-- Site Header -->
+    <header class="site-header" id="mainHeader">
         <div class="container">
-            <span class="title">ASIF</span>
-            <div class="anim-container">
-                <span class="title">IMRAN KHAN</span>
+            <span class="brand-name">ASIF</span>
+            <div class="brand-reveal-wrapper">
+                <span class="brand-name">IMRAN KHAN</span>
             </div>
         </div>
     </header>
 
+    <!-- Main Content -->
+    <main>
+        <section class="hero-section">
+            <div class="hero-content container">
+                <h1 class="hero-title">Make your website a growth engine</h1>
+                <p class="hero-description">
+                    I design and develop high-performance websites that turn visitors into customers.
+                    Specializing in modern, premium digital experiences.
+                </p>
 
-    <section class="hero-section">
-        <div class="hero-content container">
-            <h1>Make your website a growth engine</h1>
-            <p>I design and develop high-performance websites that turn visitors into customers. Lorem ipsum dolor sit
-                amet
-            </p>
-
-            <div class="hero-actions">
-                <button class="hero-button">GET STARTED</button>
-                <button class="hero-button-outline">VIEW WORK</button>
+                <div class="btn-group">
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-outline">View Work</button>
+                </div>
             </div>
+        </section>
 
-        </div>
-    </section>
-    <div style="height: 200vh;">
+        <!-- Spacer for scrolling effect -->
+        <div class="spacer"></div>
+    </main>
 
-    </div>
     <script>
+        /**
+         * Simple Scroll Interaction
+         * When the user scrolls past a threshold, the header gains an 'active' state
+         * which triggers CSS transitions for background blur and brand name collapse.
+         */
+        const handleScroll = () => {
+            const header = document.getElementById('mainHeader');
+            const scrollThreshold = 60;
 
-        document.addEventListener("scroll", (e) => {
-            const scrollTop = document.body.scrollTop;
-            if (scrollTop > 60) {
-                document.querySelector(".header").classList.add("active")
+            // Get current scroll position (cross-browser compatible)
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollThreshold < scrollTop) {
+                header.classList.add("header--active");
             } else {
-                document.querySelector(".header").classList.remove("active")
+                header.classList.remove("header--active");
             }
-        })
+        };
+
+        // Attach scroll listener with throttling if needed, 
+        // but for a simple toggle like this, standard listener is fine.
+        window.addEventListener("scroll", handleScroll);
+
+        // Run once on load in case the page is already scrolled
+        handleScroll();
     </script>
 </body>
 
