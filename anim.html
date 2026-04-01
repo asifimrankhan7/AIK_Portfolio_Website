@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <style>
+        :root {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+
+            --smooth-anim: all cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
+
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #568af2 32px), repeating-linear-gradient(#00025d, #f7f7f7);
+            background-color: #568af2;
+        }
+
+        .header {
+            max-width: 700px;
+            width: 100%;
+            margin: 10px auto;
+            position: sticky;
+            top: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            transition: var(--smooth-anim);
+            background-color: #00025d30;
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        .header.active {
+            padding: 15px 20px;
+            top: 10px;
+        }
+
+        .header .logo {
+            transition: var(--smooth-anim);
+            width: 50px;
+            height: auto;
+
+        }
+
+        .header.active .logo {
+            scale: 1.2;
+        }
+
+        .header .logo-container {
+            max-width: 100px;
+            opacity: 1;
+            transition: var(--smooth-anim);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .header.active .logo-container {
+            max-width: 0;
+            opacity: 0;
+        }
+
+        .logo-container .title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1;
+        }
+
+        .logo-container .subtitle {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <img src="Logo.png" class="logo" />
+        <div class="logo-container">
+            <span class="title">asifimran</span>
+            <span class="subtitle">design</span>
+        </div>
+    </header>
+
+    <div style="height: 200vh;">
+
+    </div>
+    <script>
+
+        document.addEventListener("scroll", (e) => {
+            const scrollTop = document.body.scrollTop;
+            if (scrollTop > 60) {
+                document.querySelector(".header").classList.add("active")
+            } else {
+                document.querySelector(".header").classList.remove("active")
+            }
+        })
+    </script>
+</body>
+
+</html>
