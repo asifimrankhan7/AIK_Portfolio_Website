@@ -117,7 +117,7 @@ header.header-scrolled .nav-logo-img {
 }
 
 .nav-logo-img {
-  height: clamp(40px, 6vw, 54px);
+  height: clamp(35px, 6vw, 40px);
   width: auto;
   transition: var(--smooth);
 }
