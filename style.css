@@ -121,7 +121,7 @@ header.header-scrolled .nav-logo-img {
   height: clamp(40px, 6vw, 54px);
   width: auto;
   transition: var(--smooth);
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  mix-blend-mode: screen; /* Removes black portions of the logo */
 }
 
 .nav-logo-link:hover .nav-logo-img {
@@ -610,7 +610,10 @@ section {
 }
 
 #preloader.loaded {
-  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.05); /* Slight zoom on exit */
 }
 
 .loader-content {
@@ -628,15 +631,23 @@ section {
 
 .loader-logo {
   width: 200px;
+  max-width: 80vw;
   height: auto;
-  filter: invert(1);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  mix-blend-mode: screen; /* Removes black portions */
+  animation: loaderPulse 2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
 }
 
 .loader-bar-container {
-  width: 200px;
+  width: 160px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   overflow: hidden;
   position: relative;
@@ -655,11 +666,12 @@ section {
 }
 
 .loader-percentage {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.1em;
-  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.2em;
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
 }
 
 /* ─── SERVICES DETAIL ───────────────────────────── */
