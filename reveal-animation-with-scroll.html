@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
 
     <style>
@@ -20,7 +20,7 @@
         /* -------------------------------------------------------------------------- */
         :root {
             box-sizing: border-box;
-            font-family: "Inter", sans-serif;
+            font-family: "Bricolage Grotesque", sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
 
@@ -177,32 +177,31 @@
         }
 
         .btn {
-            font-family: var(--font-mono);
             font-size: 0.9rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            padding: 16px 32px;
-            border-radius: 8px;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: 15px;
             cursor: pointer;
             transition: var(--smooth-anim);
-            text-transform: uppercase;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid transparent;
             backdrop-filter: blur(10px);
+            font-family: var(--font-mono);
         }
 
         .btn-primary {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #fff;
+            background-color: #ffffff;
+            color: #111111;
         }
 
         .btn-primary:hover {
-            background-color: rgba(255, 255, 255, 0.25);
+            background-color: #ffffff;
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .btn-outline {
             background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
         }
 
