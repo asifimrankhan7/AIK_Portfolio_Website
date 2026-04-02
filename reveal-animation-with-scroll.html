@@ -38,6 +38,11 @@
 
             /* Animations */
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Header Specific */
+            --header-pill-radius: 100px;
+            --header-glass-bg: rgba(255, 255, 255, 0.04);
+            --header-active-glass: rgba(0, 0, 0, 0.3);
         }
 
         *,
@@ -82,43 +87,58 @@
         /* -------------------------------------------------------------------------- */
 
         .site-header {
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: fit-content;
+            max-width: min(95vw, 1200px);
+            z-index: 1000;
+            padding: 8px; /* Balanced padding for the outer pill */
+            background: var(--header-glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--header-pill-radius);
             transition: var(--smooth-anim);
-            border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(0px);
-            padding: 15px 0;
+            display: flex;
+            align-items: center;
         }
 
-        /* State when page is scrolled */
+        /* Scrolled State */
         .site-header.header--active {
-            backdrop-filter: blur(15px);
-            background-color: var(--header-active-bg);
-            padding: 12px 0;
+            top: 16px;
+            background: var(--header-active-glass);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .site-header .container {
             display: flex;
             align-items: center;
+            gap: 40px;
+            width: 100%;
+            padding: 0 8px 0 24px; /* More space for the logo on the left */
+            max-width: none;
         }
 
-        /* Brand Typography */
+        /* Branding Group */
+        .header-brand-group {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
         .brand-name {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 200;
             color: var(--text-primary);
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             font-family: var(--font-mono);
             text-transform: uppercase;
             white-space: nowrap;
         }
 
-        /* Container for the sliding/reveal animation part of the name */
         .brand-reveal-wrapper {
             max-width: 65px;
-            /* Adjust based on "IMRAN KHAN" width */
             opacity: 1;
             transition: var(--smooth-anim);
             overflow: hidden;
@@ -126,10 +146,81 @@
             flex-direction: column;
         }
 
-        /* Hide the secondary part of the name on scroll */
         .site-header.header--active .brand-reveal-wrapper {
             max-width: 0;
             opacity: 0;
+        }
+
+        /* Navigation Links */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--smooth-anim);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: var(--smooth-anim);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Header CTA */
+        .header-cta {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--smooth-anim);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-cta:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mobile Hide Nav */
+        @media (max-width: 768px) {
+            .site-nav {
+                display: none;
+            }
+            .site-header {
+                min-width: 90vw;
+            }
         }
 
         /* -------------------------------------------------------------------------- */
@@ -336,10 +427,20 @@
     <!-- Site Header -->
     <header class="site-header" id="mainHeader">
         <div class="container">
-            <span class="brand-name">I</span>
-            <div class="brand-reveal-wrapper">
-                <span class="brand-name">MRAN</span>
+            <div class="header-brand-group">
+                <span class="brand-name">I</span>
+                <div class="brand-reveal-wrapper">
+                    <span class="brand-name">MRAN</span>
+                </div>
             </div>
+
+            <nav class="site-nav">
+                <a href="#" class="nav-link">Work</a>
+                <a href="#" class="nav-link">Approach</a>
+                <a href="#" class="nav-link">About</a>
+            </nav>
+
+            <a href="#" class="header-cta">Get in Touch</a>
         </div>
     </header>
 
