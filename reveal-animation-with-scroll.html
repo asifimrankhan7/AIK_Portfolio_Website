@@ -199,37 +199,39 @@
         }
 
         .btn {
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 14px 28px;
-            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 100px;
             cursor: pointer;
             transition: var(--smooth-anim);
             border: 1px solid transparent;
             backdrop-filter: blur(10px);
-            font-family: var(--font-mono);
+            font-family: inherit; /* Use Bricolage Grotesque */
+            letter-spacing: -0.01em;
         }
 
         .btn-primary {
             background-color: #ffffff;
-            color: #111111;
+            color: #000;
         }
 
         .btn-primary:hover {
             background-color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.03) translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
         }
 
         .btn-outline:hover {
             background-color: rgba(255, 255, 255, 0.08);
-            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.03) translateY(-2px);
         }
 
         /* -------------------------------------------------------------------------- */
