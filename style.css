@@ -148,8 +148,8 @@ header.header-scrolled .nav-logo-img {
 }
 
 .nav-cta {
-  background: var(--bg-dark);
-  color: #fff;
+  background: #fff;
+  color: #000;
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 100px;
