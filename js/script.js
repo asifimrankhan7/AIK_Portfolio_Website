@@ -45,7 +45,7 @@ function renderProjects() {
       (p, i) => `
     <div class="work-card reveal ${i > 0 ? `reveal-delay-${i}` : ""}">
       <div class="work-card-inner">
-        <div class="work-card-bg ${p.bgClass}"></div>
+        <div class="work-card-bg ${p.bgClass}" ${p.image ? `style="background-image: url('${p.image}')"` : ""}></div>
         <div class="work-overlay">
           <div class="work-tags">
             ${p.tags.map((tag) => `<span class="work-tag">${tag}</span>`).join("")}

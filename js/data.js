@@ -31,6 +31,7 @@ const siteData = {
       tags: ["Hospitality", "Web Design"],
       year: "2026",
       bgClass: "work-bg-4",
+      image: "https://aik.idexa.app/projects/hotel/assets/images/lobby_gallery.png",
     },
     {
       title: "Luminary Analytics Platform",
