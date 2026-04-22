@@ -27,6 +27,12 @@ const siteData = {
   ],
   projects: [
     {
+      title: "The Aspire Hotel – Guwahati",
+      tags: ["Hospitality", "Web Design"],
+      year: "2026",
+      bgClass: "work-bg-4",
+    },
+    {
       title: "Luminary Analytics Platform",
       tags: ["SaaS", "Product Design"],
       year: "2024",
