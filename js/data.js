@@ -34,6 +34,13 @@ const siteData = {
       image: "https://aik.idexa.app/projects/hotel/assets/images/lobby_gallery.png",
     },
     {
+      title: "Aaron Holmes Residential",
+      tags: ["Real Estate", "Web Design"],
+      year: "2025",
+      bgClass: "work-bg-1",
+      image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
+    },
+    {
       title: "Luminary Analytics Platform",
       tags: ["SaaS", "Product Design"],
       year: "2024",
