@@ -3,580 +3,201 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asif Imran Khan | Frontend Developer & UI Architect</title>
-    <meta
-      name="description"
-      content="Asif Imran Khan is a Frontend Developer & UI Architect specializing in building high-performance, pixel-perfect web applications."
+    <title>AIK — Digital Product Studio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body class="loading">
-    <!-- PRELOADER -->
-    <div id="preloader">
-      <div class="loader-content">
-        <img src="Logo.png" alt="AIK Logo" class="loader-logo" />
-        <div class="loader-bar-container">
-          <div class="loader-bar"></div>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="nav-logo">AIK</a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-line-v"></div>
+      <div class="hero-line-v"></div>
+      <div class="hero-line-v"></div>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow">Digital Product Studio</div>
+        <h1 class="hero-title">
+          We craft<br />
+          <em>digital</em><br />
+          <span class="stroke">experiences.</span>
+        </h1>
+        <p class="hero-sub">
+          A boutique studio building products that stand at the intersection of
+          strategy, design, and technology — built to last, built to perform.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary"><span>View our work</span></a>
+          <a href="#contact" class="btn-secondary">
+            Get in touch
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
         </div>
-        <div class="loader-percentage">0%</div>
+      </div>
+
+      <div class="hero-bottom">
+        <div style="display: flex; gap: 60px">
+          <div class="hero-stat">
+            <span class="num">48+</span>
+            <span class="label">Projects Shipped</span>
+          </div>
+          <div class="hero-stat">
+            <span class="num">12</span>
+            <span class="label">Countries</span>
+          </div>
+          <div class="hero-stat">
+            <span class="num">98%</span>
+            <span class="label">Client Satisfaction</span>
+          </div>
+        </div>
+        <div class="hero-scroll">
+          <div class="scroll-line"></div>
+          scroll
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-item">Product Design</div>
+        <div class="marquee-item">Web Development</div>
+        <div class="marquee-item">Brand Identity</div>
+        <div class="marquee-item">Mobile Apps</div>
+        <div class="marquee-item">UX Research</div>
+        <div class="marquee-item">Motion Design</div>
+        <div class="marquee-item">SaaS Platforms</div>
+        <div class="marquee-item">Product Design</div>
+        <div class="marquee-item">Web Development</div>
+        <div class="marquee-item">Brand Identity</div>
+        <div class="marquee-item">Mobile Apps</div>
+        <div class="marquee-item">UX Research</div>
+        <div class="marquee-item">Motion Design</div>
+        <div class="marquee-item">SaaS Platforms</div>
       </div>
     </div>
 
-    <!-- NAVIGATION HEADER -->
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="section-label">Our Services — 01</div>
 
-    <header>
-      <nav class="nav-pill">
-        <a href="#home" class="nav-logo-link">
-          <img src="Logo.png" alt="AIK Logo" class="nav-logo-img" />
-        </a>
-        <ul class="nav-links">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#insights">Insights</a></li>
-        </ul>
-        <a href="#contact" class="nav-cta">
-          Start a project
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="3" y1="8" x2="13" y2="8"></line>
-            <polyline points="9 4 13 8 9 12"></polyline>
-          </svg>
-        </a>
-        <button class="nav-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
-    </header>
+      <div class="services-grid" id="services-container">
+        <!-- Services dynamically generated via js/data.js -->
+      </div>
+    </section>
 
-    <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-menu-overlay">
-      <ul class="mobile-nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#insights">Insights</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <main>
-      <!-- HERO -->
-      <section id="home" class="hero">
-        <div class="hero-content reveal">
-          <h1 class="hero-title">
-            The Frontend Developer for founders who ship.
-          </h1>
-          <p class="hero-description">
-            Helping founders build, launch, and scale world-class web
-            applications with a focus on UI/UX, Performance, and Frontend
-            Architecture.
-          </p>
-        </div>
-
-        <div class="showreel-container reveal">
-          <img
-            src="Showreel.png"
-            alt="Asif's Web Development Showreel"
-            class="showreel-bg"
-          />
-          <div class="play-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="black">
-              <path d="M5 3l14 9-14 9V3z"></path>
-            </svg>
-          </div>
-        </div>
-      </section>
-
-      <!-- SOCIAL PROOF / LOGOS -->
-      <section
-        id="social"
-        class="reveal"
-        style="
-          background: var(--zinc-50);
-          border-radius: var(--radius-lg);
-          margin: 0 var(--container-padding);
-        "
-      >
-        <div style="text-align: center">
-          <span class="section-label">Expertise across the stack</span>
-          <h3
-            style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: 60px"
-          >
-            Frontend Precision. Backend Stability.
-          </h3>
-
-          <div
-            style="
-              display: flex;
-              justify-content: center;
-              gap: clamp(30px, 10vw, 80px);
-              filter: grayscale(1);
-              opacity: 0.5;
-              flex-wrap: wrap;
-            "
-          >
-            <!-- Using placeholder skill names or generic icons -->
-            <span style="font-weight: 800; font-size: 1.2rem">HTML5</span>
-            <span style="font-weight: 800; font-size: 1.2rem">CSS3</span>
-            <span style="font-weight: 800; font-size: 1.2rem">JAVASCRIPT</span>
-            <span style="font-weight: 800; font-size: 1.2rem">PHP 8+</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- WORK GRID -->
-      <section id="work">
-        <div class="section-header reveal">
-          <span class="section-label">Case Studies</span>
-          <h2 class="section-title">Featured Projects.</h2>
-        </div>
-
-        <div class="work-grid">
-          <div class="work-card reveal">
-            <div class="work-img-container">
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
-                class="work-img"
-                alt="Fintech Platform"
-              />
-            </div>
-            <div class="work-info">
-              <span class="work-tag">Full-Stack / PHP / JS</span>
-              <h3 class="work-title">QUANTUM FINTECH</h3>
-            </div>
-          </div>
-
-          <div class="work-card reveal">
-            <div class="work-img-container">
-              <img
-                src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2670&auto=format&fit=crop"
-                class="work-img"
-                alt="Creative Studio"
-              />
-            </div>
-            <div class="work-info">
-              <span class="work-tag">Frontend / UI / JavaScript</span>
-              <h3 class="work-title">STUDIO AETHER</h3>
-            </div>
-          </div>
-
-          <div class="work-card reveal">
-            <div class="work-img-container">
-              <img
-                src="https://images.unsplash.com/photo-1517245385603-99933ef788ed?q=80&w=2670&auto=format&fit=crop"
-                class="work-img"
-                alt="E-commerce"
-              />
-            </div>
-            <div class="work-info">
-              <span class="work-tag">E-commerce / PHP / CSS</span>
-              <h3 class="work-title">CORE COMMERCE</h3>
-            </div>
-          </div>
-
-          <div class="work-card reveal">
-            <div class="work-img-container">
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2626&auto=format&fit=crop"
-                class="work-img"
-                alt="Dashboard"
-              />
-            </div>
-            <div class="work-info">
-              <span class="work-tag">Dashboard / JS / HTML</span>
-              <h3 class="work-title">PULSE DASHBOARD</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section id="services">
-        <div class="section-header reveal">
-          <span class="section-label">Expertise</span>
-          <h2 class="section-title">Frontend Engineering & UI Architecture.</h2>
-        </div>
-
-        <div class="services-detail-grid">
-          <div class="service-detail-card reveal">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <h3 class="service-detail-title">Modern Frontend</h3>
-            <p class="service-detail-text">
-              Creating pixel-perfect, highly responsive interfaces using modern
-              JavaScript Frameworks and Vanilla CSS. Focused on performance and
-              accessibility.
-            </p>
-          </div>
-
-          <div class="service-detail-card reveal">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-            </div>
-            <h3 class="service-detail-title">UI Architecture</h3>
-            <p class="service-detail-text">
-              Building scalable design systems and component libraries. Ensuring
-              visual consistency across large-scale applications.
-            </p>
-          </div>
-
-          <div class="service-detail-card reveal">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                ></path>
-                <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
-                <polyline points="7.5 19.79 7.5 14.63 3 12"></polyline>
-                <polyline points="21 12 16.5 14.63 16.5 19.79"></polyline>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
-            </div>
-            <h3 class="service-detail-title">Product Interaction</h3>
-            <p class="service-detail-text">
-              Crafting fluid animations and micro-interactions that make your
-              product feel alive and intuitive for your users.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about">
-        <div
-          style="
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(40px, 8vw, 100px);
-            align-items: start;
-          "
-        >
-          <div class="reveal">
-            <span class="section-label">The Journey</span>
-            <h2
-              class="section-title"
-              style="text-align: left; margin-bottom: 20px"
-            >
-              The Developer for Founders.
-            </h2>
-            <p
-              class="hero-description"
-              style="text-align: left; margin-bottom: 40px; color: var(--text)"
-            >
-              I started as a hobbyist, grew into a professional, and today, I'm
-              the partner founders rely on to ship world-class web products.
-            </p>
-            <p
-              style="
-                color: var(--text-muted);
-                font-size: 1.1rem;
-                line-height: 1.8;
-                margin-bottom: 30px;
-              "
-            >
-              Drawing on my background in healthcare, I am a Junior Frontend
-              Developer dedicated to building digital experiences with a
-              human-first mindset. I specialize in translating complex
-              requirements into intuitive, accessible web applications, ensuring
-              that technology serves the user as effectively as a provider
-              serves a patient.
-            </p>
-            <p
-              style="
-                color: var(--text-muted);
-                font-size: 1.1rem;
-                line-height: 1.8;
-              "
-            >
-              I believe that great software isn't just about code—it's about
-              empathy for the user and understanding the business goals behind
-              every feature.
-            </p>
-          </div>
-          <div class="reveal" style="position: sticky; top: 180px">
-            <div
-              style="
-                aspect-ratio: 4/5;
-                background: var(--zinc-100);
-                border-radius: var(--radius-lg);
-                overflow: hidden;
-                border: 1px solid var(--border);
-              "
-            >
-              <img
-                src="Profile.Photo.jpeg"
-                alt="Asif Imran Khan"
-                style="width: 100%; height: 100%; object-fit: cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- INSIGHTS -->
-      <section id="insights">
-        <div class="section-header reveal">
-          <span class="section-label">Journal</span>
-          <h2 class="section-title">Insights from the Frontlines.</h2>
-        </div>
-
-        <div class="insights-grid">
-          <div class="insight-card reveal">
-            <span class="insight-meta">March 2026 • Performance</span>
-            <h3 class="insight-title">
-              Why First Contentful Paint is your modern conversion rate.
-            </h3>
-            <p class="insight-excerpt">
-              How millisecond optimizations in the frontend lead to
-              million-dollar returns in user retention.
-            </p>
-            <a
-              href="#"
-              style="
-                font-weight: 700;
-                color: var(--bg-dark);
-                text-decoration: none;
-                font-size: 0.9rem;
-              "
-              >Read more &rarr;</a
-            >
-          </div>
-
-          <div class="insight-card reveal">
-            <span class="insight-meta">February 2026 • Frontend</span>
-            <h3 class="insight-title">
-              The Death of Pixel-Perfect: Why Responsive Logic matters more.
-            </h3>
-            <p class="insight-excerpt">
-              Creating layouts that adapt to intent, not just screen resolution,
-              in 2026.
-            </p>
-            <a
-              href="#"
-              style="
-                font-weight: 700;
-                color: var(--bg-dark);
-                text-decoration: none;
-                font-size: 0.9rem;
-              "
-              >Read more &rarr;</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="contact-container">
-          <div class="contact-info-section reveal">
-            <h2 class="section-title" style="text-align: left">
-              Get in Touch.
-            </h2>
-            <p>
-              Whether you're starting a new venture or scaling an existing one,
-              I'm here to help with the technical heavy lifting.
-            </p>
-
-            <div class="contact-detail">
-              <label>Email</label>
-              <span>asifimrank7@gmail.com</span>
-            </div>
-            <div class="contact-detail">
-              <label>Availability</label>
-              <span>Open for Q2 2026</span>
-            </div>
-          </div>
-
-          <div class="contact-form reveal">
-            <form action="#">
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-input" placeholder="Your name" />
-              </div>
-              <div class="form-group">
-                <label>Message</label>
-                <textarea
-                  class="form-input"
-                  placeholder="Tell me about your vision..."
-                ></textarea>
-              </div>
-              <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER CTA -->
-      <section class="footer-cta reveal">
-        <h2 class="footer-cta-title">Let's build something world-class.</h2>
-        <a
-          href="#contact"
-          class="nav-cta"
-          style="
-            display: inline-flex;
-            margin: 0 auto;
-            height: 56px;
-            padding: 0 40px;
-            font-size: 1.1rem;
-          "
-        >
-          Start a project
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="margin-left: 12px"
-          >
-            <line x1="3" y1="8" x2="13" y2="8"></line>
-            <polyline points="9 4 13 8 9 12"></polyline>
-          </svg>
-        </a>
-      </section>
-
-      <!-- FOOTER -->
-      <footer
-        style="
-          padding: 0 var(--container-padding);
-          border-top: 1px solid var(--zinc-100);
-          padding-top: 80px;
-        "
-      >
-        <div class="footer-links">
-          <div
-            class="footer-col"
-            style="
-              display: flex;
-              flex-direction: column;
-              align-items: flex-start;
-              gap: 16px;
-            "
-          >
-            <img
-              src="Logo.png"
-              alt="AIK Logo"
-              style="height: 48px; mix-blend-mode: screen"
+    <!-- WORK -->
+    <section id="work" class="work-section">
+      <div class="work-header reveal">
+        <h2 class="section-title">Selected<br /><em>Work</em></h2>
+        <a href="#" class="work-link">
+          View all projects
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M3 8h10M9 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             />
-            <p
-              style="
-                color: var(--text-muted);
-                font-size: 0.85rem;
-                max-width: 240px;
-              "
-            >
-              Providing premium frontend solutions for founders and high-growth
-              teams.
-            </p>
-          </div>
-          <div class="footer-col">
-            <h4>EXPERTISE</h4>
-            <ul>
-              <li><a href="#services">Frontend Development</a></li>
-              <li><a href="#services">Responsive Design</a></li>
-              <li><a href="#services">Version Control</a></li>
-              <li><a href="#services">Animations</a></li>
-              <li><a href="#services">Component Architecture</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>CONNECT</h4>
-            <ul>
-              <li>
-                <a href="https://www.linkedin.com/in/asif-imran-khan-50b170218"
-                  >LinkedIn</a
-                >
-              </li>
-              <li><a href="https://github.com/asifimrankhan7">GitHub</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
+          </svg>
+        </a>
+      </div>
+
+      <div class="work-grid" id="work-container">
+        <!-- Projects dynamically generated via js/data.js -->
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="process-section">
+      <div class="section-label">How We Work — 02</div>
+
+      <div class="process-grid">
+        <div class="process-left">
+          <p class="process-intro reveal">
+            "Great products aren't born from briefs — they emerge from deep
+            understanding, honest dialogue, and obsessive craft."
+          </p>
+
+          <div class="process-steps" id="process-container">
+            <!-- Process steps dynamically generated via js/data.js -->
           </div>
         </div>
 
-        <div
-          class="footer-bottom"
-          style="
-            border-top: 1px solid var(--zinc-100);
-            padding-top: 40px;
-            margin-top: 40px;
-          "
-        >
-          <p style="color: var(--text-muted); font-size: 0.75rem">
-            © 2026 ASIF IMRAN KHAN. ALL RIGHTS RESERVED.
-          </p>
-          <p style="color: var(--text-muted); font-size: 0.75rem">
-            BUILT WITH PRECISION.
-          </p>
+        <div class="process-right reveal" id="tech-container">
+          <!-- Tech stack dynamically generated via js/data.js -->
         </div>
-      </footer>
-    </main>
+      </div>
+    </section>
 
-    <!-- BACK TO TOP BUTTON -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polyline points="18 15 12 9 6 15"></polyline>
-      </svg>
-    </button>
-    <script src="script.js"></script>
+    <!-- TESTIMONIALS -->
+    <section id="about" class="testimonials">
+      <div class="section-label">What Clients Say — 03</div>
+      <div class="section-title reveal" style="margin-bottom: 0">
+        People who <em>trust us</em>
+      </div>
+
+      <div class="testimonials-grid" id="testimonials-container">
+        <!-- Testimonials dynamically generated via js/data.js -->
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+      <div class="big-word">START</div>
+      <div class="cta-content">
+        <div class="cta-label">Get in touch</div>
+        <h2 class="cta-title">
+          Ready to build<br />something <em>remarkable?</em>
+        </h2>
+        <p class="cta-sub">
+          We're selective about who we work with — not because we're precious,
+          but because great work requires genuine partnership.
+        </p>
+        <a href="mailto:hello@aik.studio" class="cta-email">hello@aik.studio</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">AIK</div>
+      <ul class="footer-links">
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Dribbble</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+      <div class="footer-copy">© 2025 AIK Studio. All rights reserved.</div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
