@@ -1,203 +1,283 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AIK — Digital Product Studio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="description" content="AIK — Asif Imran Khan. Front-End Developer. Crafting accessible, pixel-perfect digital experiences." />
+    <title>Asif Imran Khan | Front-End Developer</title>
+
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                900: "#0f172a",
+                950: "#020617",
+              },
+              teal: {
+                300: "#5eead4",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="js/script.js" defer></script>
   </head>
-  <body>
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+  <body
+    class="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900"
+  >
+    <!-- Spotlight Background -->
+    <div
+      id="spotlight"
+      class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"
+    ></div>
 
-    <!-- NAV -->
-    <nav>
-      <a href="#" class="nav-logo">AIK</a>
-      <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-      <a href="#contact" class="nav-cta">Start a Project</a>
-    </nav>
+    <div
+      class="mx-auto min-height-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0"
+    >
+      <div class="lg:flex lg:justify-between lg:gap-4">
+        <!-- Header / Left Column -->
+        <header
+          class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 z-50"
+        >
+          <div>
+            <h1
+              class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl"
+            >
+              <a href="#">Asif Imran Khan</a>
+            </h1>
+            <h2 class="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+              Front-End Developer at AIK Studio
+            </h2>
+            <p class="mt-4 max-w-xs leading-normal">
+              I build accessible, pixel-perfect digital experiences for the web.
+            </p>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-line-v"></div>
-      <div class="hero-line-v"></div>
-      <div class="hero-line-v"></div>
-
-      <div class="hero-content">
-        <div class="hero-eyebrow">Digital Product Studio</div>
-        <h1 class="hero-title">
-          We craft<br />
-          <em>digital</em><br />
-          <span class="stroke">experiences.</span>
-        </h1>
-        <p class="hero-sub">
-          A boutique studio building products that stand at the intersection of
-          strategy, design, and technology — built to last, built to perform.
-        </p>
-        <div class="hero-actions">
-          <a href="#work" class="btn-primary"><span>View our work</span></a>
-          <a href="#contact" class="btn-secondary">
-            Get in touch
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M3 8h10M9 4l4 4-4 4"
-                stroke="currentColor"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-bottom">
-        <div style="display: flex; gap: 60px">
-          <div class="hero-stat">
-            <span class="num">48+</span>
-            <span class="label">Projects Shipped</span>
+            <nav class="nav hidden lg:block" aria-label="In-page jump links">
+              <ul class="mt-16 w-max">
+                <li>
+                  <a class="group flex items-center py-3 active" href="#about">
+                    <span
+                      class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    ></span>
+                    <span
+                      class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                      >About</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a class="group flex items-center py-3" href="#experience">
+                    <span
+                      class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    ></span>
+                    <span
+                      class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                      >Experience</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a class="group flex items-center py-3" href="#projects">
+                    <span
+                      class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    ></span>
+                    <span
+                      class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                      >Projects</span
+                    >
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <div class="hero-stat">
-            <span class="num">12</span>
-            <span class="label">Countries</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">98%</span>
-            <span class="label">Client Satisfaction</span>
-          </div>
-        </div>
-        <div class="hero-scroll">
-          <div class="scroll-line"></div>
-          scroll
-        </div>
-      </div>
-    </section>
 
-    <!-- MARQUEE -->
-    <div class="marquee-section">
-      <div class="marquee-track">
-        <div class="marquee-item">Product Design</div>
-        <div class="marquee-item">Web Development</div>
-        <div class="marquee-item">Brand Identity</div>
-        <div class="marquee-item">Mobile Apps</div>
-        <div class="marquee-item">UX Research</div>
-        <div class="marquee-item">Motion Design</div>
-        <div class="marquee-item">SaaS Platforms</div>
-        <div class="marquee-item">Product Design</div>
-        <div class="marquee-item">Web Development</div>
-        <div class="marquee-item">Brand Identity</div>
-        <div class="marquee-item">Mobile Apps</div>
-        <div class="marquee-item">UX Research</div>
-        <div class="marquee-item">Motion Design</div>
-        <div class="marquee-item">SaaS Platforms</div>
+          <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
+            <li class="mr-5 text-xs">
+              <a
+                class="block hover:text-slate-200"
+                href="https://github.com/asifimrankhan7"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="sr-only">GitHub</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  class="h-6 w-6"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+            <li class="mr-5 text-xs">
+              <a
+                class="block hover:text-slate-200"
+                href="https://linkedin.com/in/asifimrankhan7"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="sr-only">LinkedIn</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="h-6 w-6"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </header>
+
+        <!-- Right Column / Content -->
+        <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+          <!-- About -->
+          <section
+            id="about"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="About me"
+          >
+            <div
+              class="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden"
+            >
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+              >
+                About
+              </h2>
+            </div>
+            <div id="about-content">
+              <!-- Dynamically Rendered -->
+            </div>
+          </section>
+
+          <!-- Experience -->
+          <section
+            id="experience"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="Work experience"
+          >
+            <div
+              class="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden"
+            >
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+              >
+                Experience
+              </h2>
+            </div>
+            <div id="experience-list">
+              <!-- Dynamically Rendered -->
+            </div>
+            <div class="mt-12">
+              <a
+                class="inline-flex items-center font-medium leading-tight text-slate-200 group"
+                aria-label="View Full Résumé"
+                href="resume.html"
+              >
+                <span>View Full Résumé</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="ml-1 inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </section>
+
+          <!-- Projects -->
+          <section
+            id="projects"
+            class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            aria-label="Selected projects"
+          >
+            <div
+              class="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden"
+            >
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+              >
+                Projects
+              </h2>
+            </div>
+            <div id="projects-list">
+              <!-- Dynamically Rendered -->
+            </div>
+            <div class="mt-12">
+              <a
+                class="inline-flex items-center font-medium leading-tight text-slate-200 group"
+                aria-label="View Full Project Archive"
+                href="#"
+              >
+                <span>View Full Project Archive</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="ml-1 inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </section>
+
+          <!-- Footer -->
+          <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+            <p>
+              Loosely designed in
+              <a
+                href="https://www.figma.com/"
+                class="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
+                >Figma</a
+              >
+              and coded in
+              <a
+                href="https://code.visualstudio.com/"
+                class="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
+                >Visual Studio Code</a
+              >. Built with
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                class="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
+                >Vanilla HTML/JS</a
+              >
+              and
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                class="font-medium text-slate-400 hover:text-teal-300 focus-visible:text-teal-300"
+                >Custom CSS</a
+              >.
+            </p>
+          </footer>
+        </main>
       </div>
     </div>
-
-    <!-- SERVICES -->
-    <section id="services" class="section">
-      <div class="section-label">Our Services — 01</div>
-
-      <div class="services-grid" id="services-container">
-        <!-- Services dynamically generated via js/data.js -->
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section id="work" class="work-section">
-      <div class="work-header reveal">
-        <h2 class="section-title">Selected<br /><em>Work</em></h2>
-        <a href="#" class="work-link">
-          View all projects
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M3 8h10M9 4l4 4-4 4"
-              stroke="currentColor"
-              stroke-width="1.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
-      </div>
-
-      <div class="work-grid" id="work-container">
-        <!-- Projects dynamically generated via js/data.js -->
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="process" class="process-section">
-      <div class="section-label">How We Work — 02</div>
-
-      <div class="process-grid">
-        <div class="process-left">
-          <p class="process-intro reveal">
-            "Great products aren't born from briefs — they emerge from deep
-            understanding, honest dialogue, and obsessive craft."
-          </p>
-
-          <div class="process-steps" id="process-container">
-            <!-- Process steps dynamically generated via js/data.js -->
-          </div>
-        </div>
-
-        <div class="process-right reveal" id="tech-container">
-          <!-- Tech stack dynamically generated via js/data.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="about" class="testimonials">
-      <div class="section-label">What Clients Say — 03</div>
-      <div class="section-title reveal" style="margin-bottom: 0">
-        People who <em>trust us</em>
-      </div>
-
-      <div class="testimonials-grid" id="testimonials-container">
-        <!-- Testimonials dynamically generated via js/data.js -->
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="contact" class="cta-section">
-      <div class="big-word">START</div>
-      <div class="cta-content">
-        <div class="cta-label">Get in touch</div>
-        <h2 class="cta-title">
-          Ready to build<br />something <em>remarkable?</em>
-        </h2>
-        <p class="cta-sub">
-          We're selective about who we work with — not because we're precious,
-          but because great work requires genuine partnership.
-        </p>
-        <a href="mailto:hello@aik.studio" class="cta-email">hello@aik.studio</a>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-logo">AIK</div>
-      <ul class="footer-links">
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Dribbble</a></li>
-        <li><a href="#">GitHub</a></li>
-      </ul>
-      <div class="footer-copy">© 2025 AIK Studio. All rights reserved.</div>
-    </footer>
-
-    <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
   </body>
 </html>
