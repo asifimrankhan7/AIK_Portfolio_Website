@@ -114,3 +114,7 @@ body:hover #spotlight {
 .group:hover svg {
   transform: translate(0.25rem, -0.25rem);
 }
+
+.mix-blend-screen {
+  mix-blend-mode: screen;
+}

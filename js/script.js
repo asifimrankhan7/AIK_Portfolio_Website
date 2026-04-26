@@ -8,18 +8,18 @@ const siteData = {
     fullName: "Asif Imran Khan",
     role: "Front-End Developer",
     company: "AIK Studio",
-    email: "hello@aik.dev",
+    email: "asifimrank7@gmail.com",
     year: new Date().getFullYear(),
   },
   about: `
     <p class="mb-4">
-      I’m a software engineer who specializes in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building accessible, human-centered products at <a href="#" class="font-medium text-slate-200 hover:text-teal-300">AIK Studio</a>.
+      My journey didn't start behind a screen, but at the bedside. As a <span class="text-slate-200">Registered Nurse</span>, I learned to navigate high-pressure environments where precision and empathy are everything. In 2025, I decided to channel that same dedication into building digital solutions.
     </p>
     <p class="mb-4">
-      My journey in web development started back in 2012 when I decided to try editing custom Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML & CSS!
+      Today, I leverage my unique background in healthcare to build user-centric applications using <span class="text-teal-300">React</span>, <span class="text-teal-300">JavaScript</span>, and <span class="text-teal-300">PHP</span>. I don't just write code; I solve problems with the same care and attention to detail I used when lives were on the line.
     </p>
     <p>
-      Fast-forward to today, and I’ve had the privilege of working at a start-up, a huge corporation, and a student-led design studio. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
+      I’m a frontend-leaning developer with a solid understanding of servers, HTTPS protocols, and a growing passion for backend architecture. Currently, I'm focused on crafting accessible and robust digital experiences at <a href="#" class="font-medium text-slate-200 hover:text-teal-300">AIK Studio</a>.
     </p>
   `,
   experience: [
@@ -75,9 +75,27 @@ const siteData = {
 
 const App = {
   init: function() {
+    this.initPreloader();
     this.render();
     this.initSpotlight();
     this.initScrollSpy();
+  },
+
+  initPreloader: function() {
+    const preloader = document.getElementById("preloader");
+    const bar = document.getElementById("preloader-bar");
+    if (!preloader || !bar) return;
+
+    // Simulate progress
+    setTimeout(() => {
+      bar.style.width = "100%";
+      setTimeout(() => {
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 700);
+      }, 500);
+    }, 200);
   },
 
   render: function() {
